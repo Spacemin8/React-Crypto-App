@@ -6,12 +6,11 @@ import { useState, useEffect } from 'react';
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('');
-  const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-  const API_URL =
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=INR&order=market_cap_desc&per_page=100&page=1&sparkline=false';
   useEffect(() => {
     axios
-      .get(`${PROXY_URL}${API_URL}`)
+      .get(
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=INR&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+      )
 
       .then((res) => {
         setCoins(res.data);
